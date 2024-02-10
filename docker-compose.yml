@@ -4,10 +4,5 @@ services:
     image: ghcr.io/calico-crusade/indexer/indexer:latest
     restart: always
     environment:
-      - POSTGRES_DB=${POSTGRES_HOST}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASS}
-    volumes:
-      - cba-postg-vol:/var/lib/postgresql/data
-    ports:
-      - 8893:5432
+      - Match:Url=${MATCH_URL}
+      - Redis:Connection=${REDIS_CONNECTION}
